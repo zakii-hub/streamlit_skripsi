@@ -172,7 +172,7 @@ def main():
 		laman_data_konsumen()
 	
 	if choice =="Data Rincian Barang":
-		laman_data_konsumen()
+		laman_data_rincian_barang()
 
 	if choice == "About":
 		st.subheader("Optimasi Rute Pengiriman dengan Greedy Search dan Simulated Annealing")
