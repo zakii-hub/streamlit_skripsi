@@ -9,7 +9,7 @@ from st_btn_select import st_btn_select
 import plotly.express as px 
 
 def laman_data_kendaraan():
-    st.subheader("Semua Data kendaraan (Kantor)")
+    st.subheader("Semua Data kendaraan")
     result = view_all_data_kendaraan()
     # st.write(result)
     clean_df = pd.DataFrame(result,columns=["id_tipe_kendaraan","nama_kendaraan","kapasitas_kendaraan","jumlah_kendaraan"])
@@ -63,12 +63,12 @@ def laman_data_kendaraan():
             col1,col2 = st.columns(2)
                 
             with col1:
-                new_id_tipe_kendaraan = st.text_input("Id kendaraan",id_tipe_kendaraan)
-                new_nama_kendaraan = st.text_input("Nama kendaraan",nama_kendaraan)
+                new_id_tipe_kendaraan = st.text_input("Id Kendaraan",id_tipe_kendaraan)
+                new_nama_kendaraan = st.text_input("Nama Kendaraan",nama_kendaraan)
                 
             with col2:
-                new_kapasitas_kendaraan = st.number_input("kapasitas_kendaraan",kapasitas_kendaraan,step=1)
-                new_jumlah_kendaraan = st.number_input("jumlah_kendaraan",jumlah_kendaraan,step=1)
+                new_kapasitas_kendaraan = st.number_input("Kapasitas Kendaraan",kapasitas_kendaraan,step=1)
+                new_jumlah_kendaraan = st.number_input("Jumlah Kendaraan",jumlah_kendaraan,step=1)
            
             if st.button("Update Task"):
                 edit_data_kendaraan(new_id_tipe_kendaraan,new_nama_kendaraan,new_kapasitas_kendaraan,new_jumlah_kendaraan,id_tipe_kendaraan,nama_kendaraan,kapasitas_kendaraan,jumlah_kendaraan)
