@@ -9,7 +9,7 @@ from st_btn_select import st_btn_select
 import plotly.express as px 
 
 def laman_data_konsumen():
-    st.subheader("Semua Data konsumen (Kantor)")
+    st.subheader("Semua Data konsumen")
     result = view_all_data_konsumen()
     # st.write(result)
     clean_df = pd.DataFrame(result,columns=["id_konsumen","nama_konsumen","status_konsumen","longitude_konsumen","latitude_konsumen","alamat_konsumen"])
@@ -71,8 +71,8 @@ def laman_data_konsumen():
                 new_nama_konsumen = st.text_input("Nama konsumen",nama_konsumen)
                 new_status_konsumen = st.selectbox(status_konsumen,["Active","In-Active"])
             with col2:
-                new_longitude_konsumen = st.number_input("Longitude konsumen",step=1e-15,format="%.15f")
-                new_latitude_konsumen = st.number_input("Latitude konsumen",step=1e-15,format="%.15f")
+                new_longitude_konsumen = st.number_input("Longitude konsumen",longitude_konsumen,step=1e-15,format="%.15f")
+                new_latitude_konsumen = st.number_input("Latitude konsumen",latitude_konsumen,step=1e-15,format="%.15f")
             new_alamat_konsumen = st.text_area("Alamat konsumen",alamat_konsumen)
             if st.button("Update Task"):
                 edit_data_konsumen(new_id_konsumen,new_nama_konsumen,new_status_konsumen,new_longitude_konsumen,new_latitude_konsumen,new_alamat_konsumen,id_konsumen,nama_konsumen,status_konsumen,longitude_konsumen,latitude_konsumen,alamat_konsumen)
