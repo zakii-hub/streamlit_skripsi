@@ -5,10 +5,13 @@ from db_data_depot import *
 from db_data_kendaraan import *
 from db_data_konsumen import *
 from db_data_rincian_barang import *
+from db_data_uploaded_dataset import *
 from laman_data_depot import *
 from laman_data_kendaraan import *
 from laman_data_konsumen import * 
 from laman_data_rincian_barang import * 
+from laman_optimasi_dengan_data_crud import *
+from laman_optimasi_dengan_dataset import *
 import streamlit.components.v1 as stc
 from PIL import Image
 from st_btn_select import st_btn_select
@@ -60,6 +63,7 @@ def main():
 	create_table_data_kendaraan()
 	create_table_data_konsumen()
 	create_table_data_rincian_barang()
+	create_table_data_uploaded_dataset()
 
 	if choice == "Home":
 
@@ -173,6 +177,12 @@ def main():
 	
 	if choice =="Data Rincian Barang":
 		laman_data_rincian_barang()
+	
+	if choice == "Optimasi dengan Data CRUD":
+		laman_optimasi_dengan_data_crud()
+
+	if choice == "Optimasi dengan Dataset":
+		laman_optimasi_dengan_dataset()
 
 	if choice == "About":
 		st.subheader("Optimasi Rute Pengiriman dengan Greedy Search dan Simulated Annealing")
