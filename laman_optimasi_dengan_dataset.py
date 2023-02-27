@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd 
+import os
 import streamlit.components.v1 as stc
 from db_data_uploaded_dataset import * 
 from PIL import Image
@@ -16,6 +17,7 @@ def laman_optimasi_dengan_dataset():
         file_details = {"File Name":datafile.name,"File Type":datafile.type}
         df = pd.read_excel(datafile)
         st.dataframe(df)
+
         # Get the file name
         file_name = datafile.name
         
@@ -23,6 +25,12 @@ def laman_optimasi_dengan_dataset():
         file_data = datafile.read()
         option = st_btn_select(('#','Tambah Dataset', 'Hapus Dataset'),index=0)
         if option == 'Tambah Dataset':
-            save_data_uploaded_dataset(file_name, file_data)
+            with open(os.path.join('dataset',datafile.name),'wb') as f:
+                f.write(datafile.getbuffer())
+                st.balloons()
+        
+        st.success("File Saved")
 
-    
+    list_of_dataset = [i[0] for i in datafile]
+    selected_dataset = st.selectbox("Pilih Dataset",list_of_dataset)
+    # nama_depot_result = get_nama_depot(selected_nama_depot)
